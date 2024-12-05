@@ -37,11 +37,74 @@ Together, these principles help in building robust and maintainable object-orien
 
 # Compare Abstract and Interface
 - Abstract:
-  - Used to provide a common base class with shared code and common behavior.
-  - Can define both fully implemented methods (with code) and abstract methods (without implementation).
-  - Typically used when you have a "is-a" relationship and want to provide a partial implementation of a class.
+  - Use an abstract class when you want to define a **template** for a group of related classes. Typically used when you want to provide a partial implementation of a class.
+  - Used to provide a common base class with shared code and common behavior. Can define both fully implemented methods (with code) and abstract methods (without implementation).
+  - The elements in the Abstract class can have an access level like a normal class
+  - A regular class can only inherit from one Abstract class
+
+```
+abstract class Shape
+{
+    // Abstract method to be implemented by subclasses
+    public abstract double CalculateArea();
+
+    // Concrete method with shared implementation
+    public void DisplayArea()
+    {
+        Console.WriteLine($"Area: {CalculateArea()}");
+    }
+}
+
+
+class Circle : Shape
+{
+    public double Radius { get; set; }
+
+    public Circle(double radius)
+    {
+        Radius = radius;
+    }
+
+    // Implementation of the abstract method
+    public override double CalculateArea()
+    {
+        return Math.PI * Math.Pow(Radius, 2);
+    }
+}
+
+```
 
 - Interface:
-  - Defines a contract that classes must follow, but does not provide any implementation.
-  - Used to define a set of behaviors or capabilities that can be adopted by any class.
-  - Generally used when you need to define a "can-do" relationship (e.g., "a class can perform actions like Drivable, Readable, etc.").
+  - Use an interface when you want to define a **contract** that classes must implement
+  - By defining the general specifications of the methods, without implementing them, it requires the derived classes to **fully** implement those methods.
+  - Interfaces do not have a constructor or a field, and no instance can be created from them.
+  - Interfaces have the advantage of inheriting as many classes as they need.
+
+```
+public interface Scalable {
+    void scale(double factor);
+    void resetScale();
+}
+
+public class Circle implements Scalable {
+    private double radius;
+    private double scale = 1.0;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public void scale(double factor) {
+        this.scale *= factor;
+        this.radius *= factor;
+    }
+
+    public void resetScale() {
+        this.scale = 1.0;
+    }
+
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+```
