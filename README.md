@@ -1,4 +1,22 @@
 # OOP Principles
+4 main principles of Object-Oriented Programming (OOP) are:
+
+**Encapsulation**
+- Protects data by binding it and its functions into a class. This conceals private details and only exposes the functionality needed to interface with the class.
+
+**Inheritance**
+- Allows classes to inherit properties and behaviors from parent classes. This creates a hierarchy of classes, where each child class inherits characteristics from its parent.
+
+**Abstraction**
+- Focuses on hiding internal details and only showing the necessary functionalities. This helps reduce complexity and allows the developer to segregate the application into multiple levels.
+
+**Polymorphism**
+- Allows objects of different classes to be treated as instances of a common superclass. This enables flexibility and adaptability in code by permitting other classes to share common methods or attributes.
+
+OOP is a fundamental approach that's embraced by many programming languages and frameworks. It's important because it promotes code reusability, maintainability, and scalability. 
+
+
+Apply OOP in Automation frameworks:
 - **Encapsulate**  is achieved by hiding the details of the web elements and providing only the necessary methods to interact with them.
   - Private Web Elements: Web elements are made private so that they are not accessible from outside the Page Object class.
   - Public Methods: Methods are provided to interact with these private elements. These methods are exposed to the test scripts, which can invoke them to interact with the web page.
@@ -33,6 +51,7 @@ In summary:
 - LSP ensures that subclasses maintain the behavior of the superclass.
 - ISP promotes smaller, more focused interfaces.
 - DIP makes systems more modular and decoupled by depending on abstractions.
+
 Together, these principles help in building robust and maintainable object-oriented systems.
 
 # Compare Abstract and Interface
